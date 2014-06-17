@@ -2,7 +2,7 @@ use strict;
 use warnings;
 package RT::Extension::UsernameFormat::Organization;
 
-our $VERSION = '0.01';
+our $VERSION = '1.00';
 
 =head1 NAME
 
@@ -43,29 +43,23 @@ sub _FormatUserOrganization {
 
 package RT::Extension::UsernameFormat::Organization;
 
-=head1 INSTALLATION 
+=head1 INSTALLATION
 
 =over
 
-=item perl Makefile.PL
+=item C<perl Makefile.PL>
 
-=item make
+=item C<make>
 
-=item make install
+=item C<make install>
 
 May need root permissions
 
-=item Edit your /opt/rt4/etc/RT_SiteConfig.pm
+=item Edit your F</opt/rt4/etc/RT_SiteConfig.pm>
 
 Add this line:
 
-    Set(@Plugins, qw(RT::Extension::UsernameFormat::Organization));
-
-or add C<RT::Extension::UsernameFormat::Organization> to your existing C<@Plugins> line.
-
-=item Clear your mason cache
-
-    rm -rf /opt/rt4/var/mason_data/obj
+    Plugin('RT::Extension::UsernameFormat::Organization');
 
 =item Restart your webserver
 
@@ -86,7 +80,7 @@ or L<bug-RT-Extension-UsernameFormat-Organization@rt.cpan.org>.
 
 =head1 LICENSE AND COPYRIGHT
 
-This software is Copyright (c) 2012 by Best Practical Solutions
+This software is Copyright (c) 2012-2014 by Best Practical Solutions
 
 This is free software, licensed under:
 

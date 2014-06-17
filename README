@@ -12,21 +12,15 @@ DESCRIPTION
     and City.
 
 INSTALLATION
-    perl Makefile.PL
-    make
-    make install
+    "perl Makefile.PL"
+    "make"
+    "make install"
         May need root permissions
 
     Edit your /opt/rt4/etc/RT_SiteConfig.pm
         Add this line:
 
-            Set(@Plugins, qw(RT::Extension::UsernameFormat::Organization));
-
-        or add "RT::Extension::UsernameFormat::Organization" to your
-        existing @Plugins line.
-
-    Clear your mason cache
-            rm -rf /opt/rt4/var/mason_data/obj
+            Plugin('RT::Extension::UsernameFormat::Organization');
 
     Restart your webserver
     Navigate to Logged in as... then Settings and select the new Username
@@ -42,7 +36,7 @@ BUGS
     bug-RT-Extension-UsernameFormat-Organization@rt.cpan.org.
 
 LICENSE AND COPYRIGHT
-    This software is Copyright (c) 2012 by Best Practical Solutions
+    This software is Copyright (c) 2012-2014 by Best Practical Solutions
 
     This is free software, licensed under:
 
