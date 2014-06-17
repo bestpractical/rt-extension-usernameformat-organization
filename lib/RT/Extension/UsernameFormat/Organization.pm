@@ -6,21 +6,21 @@ our $VERSION = '0.01';
 
 =head1 NAME
 
-RT-Extension-UsernameFormat-Organization - Adds a username format option for "Name (Org, City, Country)"
+RT-Extension-UsernameFormat-Organization - Adds a username format option for "Name [Org, City, Country]"
 
 =head1 DESCRIPTION
 
-Adds "Name (Organization, City, Country)" to the "Username format" preference.
+Adds "Name [Organization, City, Country]" to the "Username format" preference.
 
 Only non-empty values are shown, so if your users only have an organization and
-city you'd see something like "John Smith (Best Practical, Boston)" without any
+city you'd see something like "John Smith [Best Practical, Boston]" without any
 country.  The same goes for Organization and City.
 
 =cut
 
 my $meta = RT->Config->Meta('UsernameFormat');
 push @{$meta->{WidgetArguments}{Values}}, 'organization';
-$meta->{WidgetArguments}{ValuesLabel}{organization} = 'Name (Organization, City, Country)';
+$meta->{WidgetArguments}{ValuesLabel}{organization} = 'Name [Organization, City, Country]';
 
 package RT::User;
 no warnings 'redefine';
@@ -35,7 +35,7 @@ sub _FormatUserOrganization {
         my $org = join ", ", grep { defined && length }
             map { $args{User}->$_ }
                 qw(Organization City Country);
-        $value .= " ($org)" if $org;
+        $value .= " [$org]" if $org;
     }
 
     return $value;

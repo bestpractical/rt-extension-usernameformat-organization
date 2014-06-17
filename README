@@ -1,14 +1,14 @@
 NAME
     RT-Extension-UsernameFormat-Organization - Adds a username format option
-    for "Name (Org, City, Country)"
+    for "Name [Org, City, Country]"
 
 DESCRIPTION
-    Adds "Name (Organization, City, Country)" to the "Username format"
+    Adds "Name [Organization, City, Country]" to the "Username format"
     preference.
 
     Only non-empty values are shown, so if your users only have an
-    organization and city you'd see something like "John Smith (Best
-    Practical, Boston)" without any country. The same goes for Organization
+    organization and city you'd see something like "John Smith [Best
+    Practical, Boston]" without any country. The same goes for Organization
     and City.
 
 INSTALLATION
