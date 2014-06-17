@@ -16,7 +16,6 @@ meta-spec:
 name: RT-Extension-UsernameFormat-Organization
 no_index:
   directory:
-    - html
     - inc
 resources:
   license: http://opensource.org/licenses/gpl-license.php

@@ -11,10 +11,6 @@ DESCRIPTION
     Practical, Boston)" without any country. The same goes for Organization
     and City.
 
-    This extension makes City and Country a public field, meaning any user
-    can see any other user's value. Default RT normally prevents
-    non-administrators from seeing City and Country.
-
 INSTALLATION
     perl Makefile.PL
     make

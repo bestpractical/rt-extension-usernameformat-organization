@@ -16,10 +16,6 @@ Only non-empty values are shown, so if your users only have an organization and
 city you'd see something like "John Smith (Best Practical, Boston)" without any
 country.  The same goes for Organization and City.
 
-This extension makes City and Country a B<public> field, meaning any user can
-see any other user's value.  Default RT normally prevents non-administrators
-from seeing City and Country.
-
 =cut
 
 my $meta = RT->Config->Meta('UsernameFormat');
@@ -29,19 +25,21 @@ $meta->{WidgetArguments}{ValuesLabel}{organization} = 'Name (Organization, City,
 package RT::User;
 no warnings 'redefine';
 
-# Ensure these user fields are readable by all users
-sub RT::User::_VendorAccessible {
-    my %columns;
-    $columns{$_} = { public => 1 } for qw(
-        Organization
-        City
-        Country
-    );
-    return \%columns;
-}
+sub _FormatUserOrganization {
+    my $self = shift;
+    my %args = @_;
 
-# Required to work around a loading quirk
-__PACKAGE__->_BuildTableAttributes;
+    my $value = $self->_FormatUserRole(@_);
+
+    if ($args{User}) {
+        my $org = join ", ", grep { defined && length }
+            map { $args{User}->$_ }
+                qw(Organization City Country);
+        $value .= " ($org)" if $org;
+    }
+
+    return $value;
+}
 
 package RT::Extension::UsernameFormat::Organization;
 
