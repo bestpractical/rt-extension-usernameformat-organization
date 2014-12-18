@@ -2,7 +2,7 @@ use strict;
 use warnings;
 package RT::Extension::UsernameFormat::Organization;
 
-our $VERSION = '1.00';
+our $VERSION = '1.01';
 
 =head1 NAME
 
@@ -69,14 +69,17 @@ Add this line:
 
 =head1 AUTHOR
 
-Thomas Sibley <trs@bestpractical.com>
+Best Practical Solutions, LLC E<lt>modules@bestpractical.comE<gt>
 
 =head1 BUGS
 
-All bugs should be reported via
-L<http://rt.cpan.org/Public/Dist/Display.html?Name=RT-Extension-UsernameFormat-Organization>
-or L<bug-RT-Extension-UsernameFormat-Organization@rt.cpan.org>.
+All bugs should be reported via email to
 
+    L<bug-RT-Extension-UsernameFormat-Organization@rt.cpan.org|mailto:bug-RT-Extension-UsernameFormat-Organization@rt.cpan.org>
+
+or via the web at
+
+    L<rt.cpan.org|http://rt.cpan.org/Public/Dist/Display.html?Name=RT-Extension-UsernameFormat-Organization>.
 
 =head1 LICENSE AND COPYRIGHT
 
